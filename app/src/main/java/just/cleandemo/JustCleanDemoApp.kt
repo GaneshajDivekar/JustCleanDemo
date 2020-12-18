@@ -29,7 +29,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@ExperimentalCoroutinesApi
 @HiltAndroidApp
 class JustCleanDemoApp : Application() {
 

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package demo.mvvm.base
+package just.cleandemo.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
