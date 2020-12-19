@@ -47,23 +47,19 @@ class Posts_Fragment : Fragment(), ItemClick {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (networkHelper.isNetworkConnected()) {
             postViewModel.getPostsInfoo().observe(viewLifecycleOwner, Observer {
                 displayPosts = it
-                if(displayPosts.size==0)
-                {
+                if (displayPosts.size == 0) {
                     postViewModel.delete()
                     setupObservers()
-
-                }else{
+                } else {
                     setupUI()
                 }
             })
         } else {
             setupUI()
         }
-
     }
 
     private fun setupObservers() {
@@ -100,6 +96,5 @@ class Posts_Fragment : Fragment(), ItemClick {
         val i = Intent(activity, CommentDetailsActivity::class.java)
         i.putExtra("ID", ID)
         startActivity(i)
-
     }
 }
