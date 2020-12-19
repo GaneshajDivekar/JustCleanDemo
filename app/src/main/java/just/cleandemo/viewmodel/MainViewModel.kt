@@ -37,5 +37,9 @@ class MainViewModel @ViewModelInject constructor(private val mainRepository: Mai
           mainRepository.updateStatus(ID!!,favFlag)
     }
 
+    fun delete() {
+        mainRepository.DeleteData()
+    }
+
 
 }

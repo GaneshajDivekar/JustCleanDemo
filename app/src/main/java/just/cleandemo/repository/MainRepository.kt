@@ -67,4 +67,8 @@ class MainRepository @Inject constructor(
     fun updateStatus(ID: String, favFlag: String) {
         postsDao.updateStatusPos(ID, favFlag)
     }
+
+    fun DeleteData() {
+        postsDao.deletePost()
+    }
 }

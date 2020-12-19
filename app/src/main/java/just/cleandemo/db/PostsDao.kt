@@ -23,4 +23,7 @@ interface PostsDao {
 
     @Query("Update posts_db   SET  favoriteFlag =:favFlag  WHERE  id =:ID")
     fun updateStatusPos(ID: String, favFlag: String)
+
+    @Query("DELETE FROM posts_db")
+    fun deletePost()
 }

@@ -29,10 +29,10 @@ class PostsCommentAdapter(
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
         val currentUser = allPostsComment!![position]
-        holder.binding.tvCMBankDesc.setText(currentUser.body)
-        holder.binding.tvNewCallStatus.setText(currentUser.email)
-        holder.binding.textViewVisitplanno.setText(currentUser.id.toString())
-        holder.binding.tvName.setText(currentUser.name)
+        holder.binding.txtBody.setText(currentUser.body)
+        holder.binding.txtEmail.setText(currentUser.email)
+        holder.binding.txtId.setText(currentUser.id.toString())
+        holder.binding.txtName.setText(currentUser.name)
         holder.binding.executePendingBindings()
         holder.itemView.setOnClickListener {
             itemClickEvent.onClick(allPostsComment)

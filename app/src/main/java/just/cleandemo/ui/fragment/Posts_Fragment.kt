@@ -18,8 +18,10 @@ import just.cleandemo.databinding.FragmentPostsBinding
 import just.cleandemo.interfaces.ItemClick
 import just.cleandemo.model.databaseclass.PostsDB
 import just.cleandemo.ui.activity.CommentDetailsActivity
+import just.cleandemo.utils.NetworkHelper
 import just.cleandemo.viewmodel.MainViewModel
 import java.util.*
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -29,6 +31,9 @@ class Posts_Fragment : Fragment(), ItemClick {
     var visitAdapter: PostsAdapter? = null
     var itemClick: ItemClick? = null
     var displayPosts = ArrayList<PostsDB>() as List<PostsDB>
+
+    @Inject
+    lateinit var networkHelper: NetworkHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,14 +47,23 @@ class Posts_Fragment : Fragment(), ItemClick {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        postViewModel.getPostsInfoo().observe(viewLifecycleOwner, Observer {
-            displayPosts = it
-            if (displayPosts.size != 0) {
-                setupUI()
-            } else {
-                setupObservers()
-            }
-        })
+        itemClick = this
+        if (networkHelper.isNetworkConnected()) {
+            postViewModel.getPostsInfoo().observe(viewLifecycleOwner, Observer {
+                displayPosts = it
+                if(displayPosts.size==0)
+                {
+                    postViewModel.delete()
+                    setupObservers()
+
+                }else{
+                    setupUI()
+                }
+            })
+        } else {
+            setupUI()
+        }
+
     }
 
     private fun setupObservers() {
@@ -71,7 +85,6 @@ class Posts_Fragment : Fragment(), ItemClick {
     }
 
     private fun setupUI() {
-        itemClick = this
         postViewModel.getPostsInfo().observe(viewLifecycleOwner, Observer {
             displayPosts = it
             visitAdapter =
@@ -85,7 +98,7 @@ class Posts_Fragment : Fragment(), ItemClick {
     override fun onClick(pos: PostsDB) {
         var ID = pos.id
         val i = Intent(activity, CommentDetailsActivity::class.java)
-        i.putExtra("ID",ID)
+        i.putExtra("ID", ID)
         startActivity(i)
 
     }
