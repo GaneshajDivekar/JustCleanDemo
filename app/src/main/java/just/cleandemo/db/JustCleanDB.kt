@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import just.cleandemo.model.databaseclass.PostsDB
 
 
-@Database(entities = [PostsDB::class], version = 1, exportSchema = false)
+@Database(entities = [PostsDB::class], version = 2, exportSchema = false)
 abstract class JustCleanDB : RoomDatabase() {
     abstract fun postDao(): PostsDao?
 }

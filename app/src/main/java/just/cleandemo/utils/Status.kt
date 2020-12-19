@@ -1,4 +1,4 @@
-package com.mindorks.framework.mvvm.utils
+package just.cleandemo.utils
 
 enum class Status {
     SUCCESS,

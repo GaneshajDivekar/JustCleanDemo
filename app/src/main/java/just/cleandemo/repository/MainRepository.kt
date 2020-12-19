@@ -7,6 +7,7 @@ import io.reactivex.schedulers.Schedulers
 import just.cleandemo.db.PostsDao
 import just.cleandemo.model.databaseclass.PostsDB
 import just.cleandemo.model.postResponse.PostAPIResponse
+import just.cleandemo.model.postcommentResponse.PostCommentResponse
 import just.cleandemo.network.APIService
 import javax.inject.Inject
 
@@ -16,6 +17,7 @@ class MainRepository @Inject constructor(
 ) {
 
     var postAPIResponseLiveData = MutableLiveData<PostAPIResponse>()
+    var postCommentResponseLiveData = MutableLiveData<PostCommentResponse>()
 
     fun putResponse(): MutableLiveData<PostAPIResponse> {
         apiHelper.getPosts()
@@ -31,8 +33,38 @@ class MainRepository @Inject constructor(
         return postAPIResponseLiveData
     }
 
+
+    fun getCommentResponse(ID: Int): MutableLiveData<PostCommentResponse> {
+        apiHelper.getPostsComments(ID)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribe(
+                { postResult ->
+                    postCommentResponseLiveData.postValue(postResult)
+                },
+                { error ->
+                    postCommentResponseLiveData.postValue(null)
+                }
+            )
+        return postCommentResponseLiveData
+    }
+
     fun insertData(postsDB: PostsDB) {
         postsDao.insertData(postsDB)
     }
 
+    fun getPostsData(): LiveData<List<PostsDB>> {
+        return postsDao.getPosts()
+    }
+
+    fun getPostsDataa(): LiveData<List<PostsDB>> {
+        return postsDao.getPostss()
+    }
+
+    fun getFavouriteData(favourite_id: String): LiveData<List<PostsDB>> {
+        return postsDao.getFavoritePosts(favourite_id)
+    }
+
+    fun updateStatus(ID: String, favFlag: String) {
+        postsDao.updateStatusPos(ID, favFlag)
+    }
 }

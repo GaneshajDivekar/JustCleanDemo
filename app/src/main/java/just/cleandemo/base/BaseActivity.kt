@@ -24,6 +24,8 @@
 
 package just.cleandemo.base
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -48,4 +50,6 @@ abstract class BaseActivity<VM : ViewModel, VB : ViewBinding> : AppCompatActivit
      * It returns [VB] which is assigned to [mViewBinding] and used in [onCreate]
      */
     abstract fun getViewBinding(): VB
+
+
 }

@@ -22,5 +22,11 @@ class PostsDB {
     @ColumnInfo(name = "body")
     var body: String? = null
 
+    @ColumnInfo(name = "favoriteFlag")
+    var favoriteFlag: String? = null
+
+    @ColumnInfo(name = "online")
+    var online: String? = null
+
 
 }

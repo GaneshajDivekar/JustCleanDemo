@@ -25,14 +25,15 @@
 package just.cleandemo
 
 import android.app.Application
-import androidx.appcompat.app.AppCompatDelegate
 import dagger.hilt.android.HiltAndroidApp
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+
 
 @HiltAndroidApp
 class JustCleanDemoApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
     }
+
 }
