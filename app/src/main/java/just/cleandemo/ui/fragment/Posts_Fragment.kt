@@ -40,14 +40,14 @@ class Posts_Fragment : Fragment(), ItemClick {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_posts_, container, false)
-
+        itemClick = this
         return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        itemClick = this
+
         if (networkHelper.isNetworkConnected()) {
             postViewModel.getPostsInfoo().observe(viewLifecycleOwner, Observer {
                 displayPosts = it
