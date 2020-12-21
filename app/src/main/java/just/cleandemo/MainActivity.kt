@@ -45,51 +45,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         }
     }
 
-    /*
-    private void clearSession() {
-        sessionManager.setVisitTypeIdentifierHome("");
-        sessionManager.setInitiateHomeTrip("");
-        sessionManager.setHomeReachedSite("");
-        sessionManager.setInitiateTrip("");
-        sessionManager.setVisitTypeIdentifier("");
-        sessionManager.setInitiateTripDateTime("");
-        sessionManager.setReachedSite("");
-        sessionManager.setFinishTripDateTime("");
-        sessionManager.setStartWork("");
-        sessionManager.setStartWorkDateTime("");
-        sessionManager.setAddExpense("");
-        sessionManager.setSessionSiteCode("");
-        sessionManager.setKEY_FrequencyID("");
-        sessionManager.setVisit_TicketID("");
-        sessionManager.setEndTrip("");
-        sessionManager.setCHECKLISTJson("");
-        sessionManager.setEndWork("");
-        sessionManager.setEndWorkDateTime("");
-        sessionManager.setSingnature("");
-        sessionManager.setReviewNext("");
-        sessionManager.setCompareSessionVisitTicketID("");
-        sessionManager.setstrCompletedLastVisited("");
-        sessionManager.setstrCompletedNoOfVisit("");
-        sessionManager.setstrCompletedATMID("");
-        sessionManager.setstrCompletedAddress("");
-        sessionManager.setstrCompletedTicketNO("");
-        sessionManager.setstrCompletedHasAccept("");
-        sessionManager.setAddExpense("");
-        sessionManager.setSetBackStack("");
-        sessionManager.setVisitUniqueSessionID("");
-        sessionManager.setAtmid("");
-        sessionManager.setVisitticketidsessionnew("");
-        sessionManager.setCheckListId("");
-        sessionManager.setKEY_VisitUniqueID("");
-        sessionManager.setCurrentCompleteUniqueId("");
-        sessionManager.setRLatitude("");
-        sessionManager.setAppmenucode("");
-        sessionManager.setRlongitude("");
-        sessionManager.setILatitude("");
-        sessionManager.setIlongitude("");
-        sessionManager.setNewChecklistid("");
-        sessionManager.setIsexpenseapplicable("");
-    }*/
 
     override fun onStop() {
         super.onStop()

@@ -4,22 +4,21 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.scopes.ActivityScoped
-import just.cleandemo.base.BaseActivity
-import just.cleandemo.databinding.ActivityCommentDetailsBinding
-import just.cleandemo.viewmodel.MainViewModel
-
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.ActivityScoped
 import just.cleandemo.MainActivity
 import just.cleandemo.R
 import just.cleandemo.adapter.PostsCommentAdapter
+import just.cleandemo.base.BaseActivity
+import just.cleandemo.databinding.ActivityCommentDetailsBinding
 import just.cleandemo.interfaces.ItemClickComment
 import just.cleandemo.model.postcommentResponse.PostCommentResponse
 import just.cleandemo.utils.NetworkHelper
-import java.util.ArrayList
+import just.cleandemo.viewmodel.MainViewModel
+import java.util.*
 import javax.inject.Inject
 
 
@@ -56,6 +55,12 @@ class CommentDetailsActivity : BaseActivity<MainViewModel, ActivityCommentDetail
             mViewModel.updateStatusPost(ID,"1")
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
+        }
+    }
+
+    internal object Foo {
+        fun a(): Int {
+            return 1
         }
     }
 
